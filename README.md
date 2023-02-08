@@ -48,3 +48,6 @@ In order to execute the solution is necessary to previously install node and npm
 ```npm start```
 * run test cases: 
 ```npm test```
+
+## URL To the Deployed Live Project
+https://cheery-jalebi-6034f9.netlify.app/
