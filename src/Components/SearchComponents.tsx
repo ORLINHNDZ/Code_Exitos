@@ -11,7 +11,7 @@ const geoLocation = (pos: any) => {
 
     const crd = pos.coords
 
-    // return crd.latitude , crd.longitude
+
 
     const location: location = {
         lat: crd.latitude,

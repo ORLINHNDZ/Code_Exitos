@@ -3,3 +3,17 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+try {
+    describe('handle the amount of coincidences', () => {
+   const matchingResults = require('./Components/Dashboard');  
+ 
+   it('showcase if Expected is = to Received values', () => {
+     const coincidences = matchingResults('');
+     
+     expect(coincidences[0]).toBe('');
+   });
+ }); 
+ } catch (error) {
+     console.log(error)
+ }
