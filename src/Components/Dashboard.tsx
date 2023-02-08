@@ -4,7 +4,7 @@ import { Weather } from "./Weather"
 
 export const WeatherDashboard = () => {
     return (
-        <Box w='80%' m='auto'>
+        <Box m='auto' w={[300, 600, 1200]} >
             <SearchComponents />
         </Box>
     )

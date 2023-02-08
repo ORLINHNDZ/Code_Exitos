@@ -1,6 +1,5 @@
-import { Box, Heading, Stack, Image, Grid, GridItem, Text, Tabs, TabList, TabPanels , Tab , TabPanel} from "@chakra-ui/react"
+import { Box, Heading, Stack, Image, Grid, Flex, SimpleGrid, GridItem, Text, Tabs, TabList, TabPanels , Tab , TabPanel} from "@chakra-ui/react"
 import { ChartComponents } from "./Chart"
-import './style.css'
 
 
 type weatherProps = {
@@ -73,31 +72,31 @@ const DayChange = (date: string) => {
 
     switch (today_date) {
         case 0: {
-            return 'Mon'
+            return 'Sun'
         }
 
         case 1: {
-            return 'Tue'
+            return 'Mon'
         }
 
         case 2: {
-            return 'Wed'
+            return 'Tue'
         }
 
         case 3: {
-            return 'Thu'
+            return 'Wed'
         }
 
         case 4: {
-            return 'Fri'
+            return 'Thu'
         }
 
         case 5: {
-            return 'Sat'
+            return 'Fri'
         }
 
         case 6: {
-            return 'Sun'
+            return 'Sat'
         }
     }
 }
@@ -115,20 +114,23 @@ export const Weather = (props: weatherProps) => {
 
     return (
         <Box>
-            <Box>
-                <Tabs className="tabs-style">
+            <Box >
+                <Tabs>
                     <TabList>
                         {
                             getWeatherDetail && getWeatherDetail.data && getWeatherDetail.data.map((i: any, index: number) => (
-                                <Tab _selected={{border : '2px solid blue', borderRadius :'10px' , py :'20px', bg : 'red.50'}} w='100%' h='100%' display={'flex'} flexDir='column'>
+                                <Tab _selected={{border : '2px solid blue', borderRadius :'10px' , py :'20px', bg : 'red.50' }} w='100%' h='100%' display={'flex'} flexDir='column'>
                                     <Heading textAlign={'center'} fontFamily={'monospace'} size='sm'>{DayChange(i.datetime)}</Heading>
                                     <Heading textAlign={'center'} color='gray.400' fontFamily={'monospace'} size='sm'>{i.datetime}</Heading>
-                                    <Box p='3' m='1'>
-                                        <Stack direction={'column'}>
+                                    
+                                    <Box>
+        
+                                        <Stack direction={'row'}>
                                             <Heading textAlign={'center'} fontFamily={'monospace'} size='sm'>{i.max_temp.toFixed(0)}° </Heading>
                                             <Heading textAlign={'center'} color='gray.400' fontFamily={'monospace'} size='sm'>{i.min_temp.toFixed(0)}°</Heading>
                                               
                                         </Stack>
+                                    
                                         <Image display={'block'} ml='auto' mr='auto' src={`https://www.weatherbit.io/static/img/icons/${i.weather.icon}.png`} w='50%' />
                                     </Box>
                                     <Text textAlign={'center'}>{i.weather.description}</Text>
@@ -148,7 +150,9 @@ export const Weather = (props: weatherProps) => {
 
                 </Grid>
             </Box>
+
         </Box>
+        
     )
 }
 
